@@ -33,14 +33,28 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
+          <h1>${variables.name == null ? "Put your name" : variables.name}
+          ${variables.lastname == null ? "" : variables.lastname}</h1>
+          <h2>${
+            variables.name == null ? "Pick your position" : variables.role
+          }</h2>
+          <h3>${
+            variables.city == null
+              ? "Pick your city and country"
+              : variables.city
+          }
+          ${variables.country == null ? "" : variables.country}</h3>
+          <ul class=${variables.socialMediaPosition}>
             <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+            <li><a href= "https://github.com/"+ ${
+              variables.github == "alesanchezr" ? "" : variables.github
+            }><i class="fa fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/" + ${
+              variables.linkedin == null ? "" : variables.linkedin
+            }"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/ + ${
+              variables.instagram == null ? "" : variables.instagram
+            }"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
